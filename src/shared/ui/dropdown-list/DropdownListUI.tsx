@@ -88,7 +88,7 @@ export function DropdownListUI(props: SelectProps) {
       setIsOpen(false);
       onChange?.([option]);
     }
-    if (type === 'сheckbox') {
+    if (type === 'checkbox') {
       const isSelected = selected.some((element) => element === option);
       if (isSelected) {
         onChange?.(selected.filter((element) => element !== option));
@@ -162,7 +162,7 @@ export function DropdownListUI(props: SelectProps) {
               {isChoose ? selected[0]?.title : placeholder}
             </h5>
           )}
-          {type === 'сheckbox' && (
+          {type === 'checkbox' && (
             <h5 className={isChoose ? styles.placeholderActive : styles.placeholderPacive}>
               {isChoose ? `Выбрано: ${selected.length}` : placeholder}
             </h5>
@@ -199,14 +199,14 @@ export function DropdownListUI(props: SelectProps) {
                       tabIndex={disabled ? -1 : 0}
                       aria-disabled={disabled}
                     >
-                      {type === 'сheckbox' && !selected.some((element) => element === option) && (
+                      {type === 'checkbox' && !selected.some((element) => element === option) && (
                         <img
                           src={checkboxDefault}
                           alt="ячейка чекбокса"
                           className={styles.checkbox}
                         />
                       )}
-                      {type === 'сheckbox' && selected.some((element) => element === option) && (
+                      {type === 'checkbox' && selected.some((element) => element === option) && (
                         <img
                           src={checkboxDone}
                           alt="отмеченная ячейка чекбокса"
